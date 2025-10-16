@@ -6,17 +6,34 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		E098D0B12EA0D04E00F2830C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E098D0A92EA0D04E00F2830C /* Assets.xcassets */; };
+		E098D0B22EA0D04E00F2830C /* CodeScanner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E098D0AB2EA0D04E00F2830C /* CodeScanner.xcdatamodeld */; };
+		E098D0B32EA0D04E00F2830C /* CodeScannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098D0AC2EA0D04E00F2830C /* CodeScannerApp.swift */; };
+		E098D0B42EA0D04E00F2830C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098D0AD2EA0D04E00F2830C /* ContentView.swift */; };
+		E098D0B52EA0D04E00F2830C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098D0AE2EA0D04E00F2830C /* Persistence.swift */; };
+		E098D0BC2EA0D3C100F2830C /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098D0BB2EA0D3C100F2830C /* Coordinator.swift */; };
+		E098D0C02EA0D5B900F2830C /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098D0BF2EA0D5B900F2830C /* TabsView.swift */; };
+		E098D0CC2EA0D83000F2830C /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098D0CB2EA0D83000F2830C /* ListView.swift */; };
+		E098D0CE2EA0D84D00F2830C /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098D0CD2EA0D84D00F2830C /* ListViewModel.swift */; };
+		E098D0D02EA0D96E00F2830C /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098D0CF2EA0D96E00F2830C /* ScanView.swift */; };
+		E098D0D22EA0D97200F2830C /* ScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098D0D12EA0D97200F2830C /* ScanViewModel.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		E098D0952EA0CE1C00F2830C /* CodeScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E098D0A92EA0D04E00F2830C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E098D0AC2EA0D04E00F2830C /* CodeScannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeScannerApp.swift; sourceTree = "<group>"; };
+		E098D0AD2EA0D04E00F2830C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E098D0AE2EA0D04E00F2830C /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		E098D0B02EA0D04E00F2830C /* CodeScanner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CodeScanner.xcdatamodel; sourceTree = "<group>"; };
+		E098D0BB2EA0D3C100F2830C /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		E098D0BF2EA0D5B900F2830C /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
+		E098D0CB2EA0D83000F2830C /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		E098D0CD2EA0D84D00F2830C /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		E098D0CF2EA0D96E00F2830C /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
+		E098D0D12EA0D97200F2830C /* ScanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		E098D0972EA0CE1C00F2830C /* CodeScanner */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = CodeScanner;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		E098D0922EA0CE1C00F2830C /* Frameworks */ = {
@@ -32,7 +49,7 @@
 		E098D08C2EA0CE1C00F2830C = {
 			isa = PBXGroup;
 			children = (
-				E098D0972EA0CE1C00F2830C /* CodeScanner */,
+				E098D0AF2EA0D04E00F2830C /* CodeScanner */,
 				E098D0962EA0CE1C00F2830C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -43,6 +60,136 @@
 				E098D0952EA0CE1C00F2830C /* CodeScanner.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E098D0AA2EA0D04E00F2830C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E098D0A92EA0D04E00F2830C /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E098D0AF2EA0D04E00F2830C /* CodeScanner */ = {
+			isa = PBXGroup;
+			children = (
+				E098D0AA2EA0D04E00F2830C /* Resources */,
+				E098D0B62EA0D05800F2830C /* App */,
+				E098D0B72EA0D05D00F2830C /* Services */,
+			);
+			path = CodeScanner;
+			sourceTree = "<group>";
+		};
+		E098D0B62EA0D05800F2830C /* App */ = {
+			isa = PBXGroup;
+			children = (
+				E098D0AC2EA0D04E00F2830C /* CodeScannerApp.swift */,
+				E098D0AD2EA0D04E00F2830C /* ContentView.swift */,
+				E098D0BD2EA0D43600F2830C /* Main */,
+				E098D0B92EA0D39100F2830C /* Coordinator */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E098D0B72EA0D05D00F2830C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E098D0B82EA0D06F00F2830C /* Data */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		E098D0B82EA0D06F00F2830C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				E098D0AE2EA0D04E00F2830C /* Persistence.swift */,
+				E098D0AB2EA0D04E00F2830C /* CodeScanner.xcdatamodeld */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		E098D0B92EA0D39100F2830C /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				E098D0BB2EA0D3C100F2830C /* Coordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		E098D0BD2EA0D43600F2830C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E098D0BE2EA0D5AE00F2830C /* View */,
+				E098D0C42EA0D78C00F2830C /* Tabs */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E098D0BE2EA0D5AE00F2830C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E098D0BF2EA0D5B900F2830C /* TabsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E098D0C42EA0D78C00F2830C /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				E098D0C52EA0D7A000F2830C /* List */,
+				E098D0C62EA0D7A600F2830C /* Scan */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		E098D0C52EA0D7A000F2830C /* List */ = {
+			isa = PBXGroup;
+			children = (
+				E098D0C72EA0D80500F2830C /* View */,
+				E098D0C82EA0D80D00F2830C /* ViewModel */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		E098D0C62EA0D7A600F2830C /* Scan */ = {
+			isa = PBXGroup;
+			children = (
+				E098D0C92EA0D82000F2830C /* View */,
+				E098D0CA2EA0D82000F2830C /* ViewModel */,
+			);
+			path = Scan;
+			sourceTree = "<group>";
+		};
+		E098D0C72EA0D80500F2830C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E098D0CB2EA0D83000F2830C /* ListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E098D0C82EA0D80D00F2830C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E098D0CD2EA0D84D00F2830C /* ListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E098D0C92EA0D82000F2830C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E098D0CF2EA0D96E00F2830C /* ScanView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E098D0CA2EA0D82000F2830C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E098D0D12EA0D97200F2830C /* ScanViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -59,9 +206,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				E098D0972EA0CE1C00F2830C /* CodeScanner */,
 			);
 			name = CodeScanner;
 			packageProductDependencies = (
@@ -109,6 +253,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E098D0B12EA0D04E00F2830C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +264,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E098D0D22EA0D97200F2830C /* ScanViewModel.swift in Sources */,
+				E098D0B22EA0D04E00F2830C /* CodeScanner.xcdatamodeld in Sources */,
+				E098D0CC2EA0D83000F2830C /* ListView.swift in Sources */,
+				E098D0B32EA0D04E00F2830C /* CodeScannerApp.swift in Sources */,
+				E098D0BC2EA0D3C100F2830C /* Coordinator.swift in Sources */,
+				E098D0C02EA0D5B900F2830C /* TabsView.swift in Sources */,
+				E098D0B42EA0D04E00F2830C /* ContentView.swift in Sources */,
+				E098D0CE2EA0D84D00F2830C /* ListViewModel.swift in Sources */,
+				E098D0B52EA0D04E00F2830C /* Persistence.swift in Sources */,
+				E098D0D02EA0D96E00F2830C /* ScanView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +487,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E098D0AB2EA0D04E00F2830C /* CodeScanner.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E098D0B02EA0D04E00F2830C /* CodeScanner.xcdatamodel */,
+			);
+			currentVersion = E098D0B02EA0D04E00F2830C /* CodeScanner.xcdatamodel */;
+			path = CodeScanner.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E098D08D2EA0CE1C00F2830C /* Project object */;
 }
