@@ -18,6 +18,12 @@
 		E098D0CE2EA0D84D00F2830C /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098D0CD2EA0D84D00F2830C /* ListViewModel.swift */; };
 		E098D0D02EA0D96E00F2830C /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098D0CF2EA0D96E00F2830C /* ScanView.swift */; };
 		E098D0D22EA0D97200F2830C /* ScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098D0D12EA0D97200F2830C /* ScanViewModel.swift */; };
+		E098D0D92EA0DE9E00F2830C /* ScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098D0D82EA0DE9E00F2830C /* ScannerController.swift */; };
+		E098D0DC2EA0DEF200F2830C /* ScannerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098D0DB2EA0DEF200F2830C /* ScannerError.swift */; };
+		E098D0E12EA0E0DF00F2830C /* ScannerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098D0E02EA0E0DF00F2830C /* ScannerViewModel.swift */; };
+		E098D0E32EA0E10300F2830C /* CameraPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098D0E22EA0E10300F2830C /* CameraPreview.swift */; };
+		E098D0E52EA0E11E00F2830C /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098D0E42EA0E11E00F2830C /* ScannerView.swift */; };
+		E098D0E72EA0FF3400F2830C /* AppIcon.icon in Resources */ = {isa = PBXBuildFile; fileRef = E098D0E62EA0FF3400F2830C /* AppIcon.icon */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +39,12 @@
 		E098D0CD2EA0D84D00F2830C /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		E098D0CF2EA0D96E00F2830C /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
 		E098D0D12EA0D97200F2830C /* ScanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanViewModel.swift; sourceTree = "<group>"; };
+		E098D0D82EA0DE9E00F2830C /* ScannerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerController.swift; sourceTree = "<group>"; };
+		E098D0DB2EA0DEF200F2830C /* ScannerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerError.swift; sourceTree = "<group>"; };
+		E098D0E02EA0E0DF00F2830C /* ScannerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewModel.swift; sourceTree = "<group>"; };
+		E098D0E22EA0E10300F2830C /* CameraPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreview.swift; sourceTree = "<group>"; };
+		E098D0E42EA0E11E00F2830C /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
+		E098D0E62EA0FF3400F2830C /* AppIcon.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; path = AppIcon.icon; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +77,7 @@
 		E098D0AA2EA0D04E00F2830C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E098D0E62EA0FF3400F2830C /* AppIcon.icon */,
 				E098D0A92EA0D04E00F2830C /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -94,6 +107,7 @@
 		E098D0B72EA0D05D00F2830C /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				E098D0D62EA0DE8000F2830C /* Managers */,
 				E098D0B82EA0D06F00F2830C /* Data */,
 			);
 			path = Services;
@@ -192,6 +206,50 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		E098D0D62EA0DE8000F2830C /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				E098D0D72EA0DE8B00F2830C /* Scanner */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		E098D0D72EA0DE8B00F2830C /* Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				E098D0DA2EA0DEE800F2830C /* Model */,
+				E098D0DE2EA0E0B100F2830C /* ViewModel */,
+				E098D0DD2EA0E0AC00F2830C /* View */,
+			);
+			path = Scanner;
+			sourceTree = "<group>";
+		};
+		E098D0DA2EA0DEE800F2830C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E098D0DB2EA0DEF200F2830C /* ScannerError.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E098D0DD2EA0E0AC00F2830C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E098D0E22EA0E10300F2830C /* CameraPreview.swift */,
+				E098D0E42EA0E11E00F2830C /* ScannerView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E098D0DE2EA0E0B100F2830C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E098D0D82EA0DE9E00F2830C /* ScannerController.swift */,
+				E098D0E02EA0E0DF00F2830C /* ScannerViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -254,6 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E098D0B12EA0D04E00F2830C /* Assets.xcassets in Resources */,
+				E098D0E72EA0FF3400F2830C /* AppIcon.icon in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,11 +326,16 @@
 				E098D0D22EA0D97200F2830C /* ScanViewModel.swift in Sources */,
 				E098D0B22EA0D04E00F2830C /* CodeScanner.xcdatamodeld in Sources */,
 				E098D0CC2EA0D83000F2830C /* ListView.swift in Sources */,
+				E098D0E32EA0E10300F2830C /* CameraPreview.swift in Sources */,
+				E098D0E12EA0E0DF00F2830C /* ScannerViewModel.swift in Sources */,
 				E098D0B32EA0D04E00F2830C /* CodeScannerApp.swift in Sources */,
 				E098D0BC2EA0D3C100F2830C /* Coordinator.swift in Sources */,
+				E098D0DC2EA0DEF200F2830C /* ScannerError.swift in Sources */,
 				E098D0C02EA0D5B900F2830C /* TabsView.swift in Sources */,
+				E098D0E52EA0E11E00F2830C /* ScannerView.swift in Sources */,
 				E098D0B42EA0D04E00F2830C /* ContentView.swift in Sources */,
 				E098D0CE2EA0D84D00F2830C /* ListViewModel.swift in Sources */,
+				E098D0D92EA0DE9E00F2830C /* ScannerController.swift in Sources */,
 				E098D0B52EA0D04E00F2830C /* Persistence.swift in Sources */,
 				E098D0D02EA0D96E00F2830C /* ScanView.swift in Sources */,
 			);
@@ -411,6 +475,8 @@
 				DEVELOPMENT_TEAM = VWW7MQ2767;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Code Scanner";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Для сканирования QR и штрих-кодов требуется доступ к камере.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -443,6 +509,8 @@
 				DEVELOPMENT_TEAM = VWW7MQ2767;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Code Scanner";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Для сканирования QR и штрих-кодов требуется доступ к камере.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
