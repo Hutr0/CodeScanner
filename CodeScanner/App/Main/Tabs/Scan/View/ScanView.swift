@@ -13,7 +13,9 @@ struct ScanView: View {
     
     var body: some View {
         NavigationStack {
-            ScannerView { _ in }
+            ScannerView { code in
+                print(code)
+            }
         }
     }
 }

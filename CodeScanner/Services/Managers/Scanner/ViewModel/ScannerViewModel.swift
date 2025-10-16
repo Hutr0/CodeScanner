@@ -73,7 +73,10 @@ final class ScannerViewModel: ObservableObject {
     func stop() {
         Task {
             await scanner.stop()
-            await MainActor.run { isRunning = false }
+            await MainActor.run {
+                isRunning = false
+                isTorchOn = false
+            }
         }
     }
 
@@ -85,6 +88,12 @@ final class ScannerViewModel: ObservableObject {
             } catch {
                 await MainActor.run { self.errorMessage = error.localizedDescription }
             }
+        }
+    }
+    
+    func updateROI(layer: AVCaptureVideoPreviewLayer, in bounds: CGRect, fraction: CGFloat = 0.7) {
+        Task {
+            await scanner.updateRectOfInterest(previewLayer: layer, in: bounds, fraction: fraction)
         }
     }
 }

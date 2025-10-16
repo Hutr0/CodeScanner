@@ -15,7 +15,11 @@ final class ScannerController: NSObject {
     // MARK: Paramters
     
     let session = AVCaptureSession()
+    
     private var configured = false
+    private var lastScanTime = Date.distantPast
+    
+    private weak var metadataOutput: AVCaptureMetadataOutput?
     
     var onRuntimeError: ((Error) -> Void)?
     
@@ -124,12 +128,32 @@ extension ScannerController {
             guard session.canAddOutput(metadataOutput) else { throw ScannerError.configurationFailed }
             session.addOutput(metadataOutput)
             
+            self.metadataOutput = metadataOutput
+            
             metadataOutput.setMetadataObjectsDelegate(self, queue: metadataQueue)
             
             let available = metadataOutput.availableMetadataObjectTypes
             metadataOutput.metadataObjectTypes = supportedTypes.filter { available.contains($0) }
             
             configured = true
+        }
+    }
+    
+    func updateRectOfInterest(previewLayer: AVCaptureVideoPreviewLayer, in viewBounds: CGRect, fraction: CGFloat = 0.7) async {
+        await runOnSessionQueue {
+            guard let output = self.metadataOutput else { return }
+            
+            let f = max(0.0, min(1.0, fraction))
+            let side = min(viewBounds.width, viewBounds.height) * f
+            let rectInLayer = CGRect(
+                x: (viewBounds.width  - side) / 2,
+                y: (viewBounds.height - side) / 2,
+                width: side,
+                height: side
+            )
+            
+            let roi = previewLayer.metadataOutputRectConverted(fromLayerRect: rectInLayer)
+            output.rectOfInterest = roi
         }
     }
     
@@ -190,6 +214,10 @@ extension ScannerController: AVCaptureMetadataOutputObjectsDelegate {
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         guard let obj = metadataObjects.first as? AVMetadataMachineReadableCodeObject, let value = obj.stringValue else { return }
+        
+        let now = Date()
+        guard now.timeIntervalSince(lastScanTime) > 1.0 else { return }
+        lastScanTime = now
         
         scannedCodeSubject.send(value)
         

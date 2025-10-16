@@ -20,31 +20,33 @@ struct ScannerView: View {
                 PermissionDeniedPlaceholder()
             } else {
                 GeometryReader { geo in
-                    CameraPreview(session: vm.session)
-                        .ignoresSafeArea(.container)
-                        .overlay {
-                            Image(systemName: "viewfinder")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: geo.size.width / 2)
-                                .foregroundStyle(.white)
-                                .fontWeight(.thin)
-                                .allowsHitTesting(false)
-                                .scaleEffect(isPulsing ? 1.06 : 0.94)
-                                .animation(.easeInOut(duration: 1).repeatForever(autoreverses: true), value: isPulsing)
-                                .onAppear { isPulsing = true }
+                    CameraPreview(session: vm.session) { layer, bounds in
+                        vm.updateROI(layer: layer, in: bounds)
+                    }
+                    .ignoresSafeArea(.container)
+                    .overlay {
+                        Image(systemName: "viewfinder")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: geo.size.width / 2)
+                            .foregroundStyle(.white)
+                            .fontWeight(.thin)
+                            .allowsHitTesting(false)
+                            .scaleEffect(isPulsing ? 1.06 : 0.94)
+                            .animation(.easeInOut(duration: 1).repeatForever(autoreverses: true), value: isPulsing)
+                            .onAppear { isPulsing = true }
+                    }
+                    .overlay(alignment: .topTrailing) {
+                        Button {
+                            vm.toggleTorch()
+                        } label: {
+                            Image(systemName: vm.isTorchOn ? "flashlight.on.fill" : "flashlight.off.fill")
+                                .font(.system(size: 20, weight: .semibold))
                         }
-                        .overlay(alignment: .topTrailing) {
-                            Button {
-                                vm.toggleTorch()
-                            } label: {
-                                Image(systemName: vm.isTorchOn ? "flashlight.on.fill" : "flashlight.off.fill")
-                                    .font(.system(size: 20, weight: .semibold))
-                            }
-                            .buttonStyle(.glass)
-                            .foregroundStyle(vm.isTorchOn ? AnyShapeStyle(.yellow) : AnyShapeStyle(.foreground))
-                            .padding()
-                        }
+                        .buttonStyle(.glass)
+                        .foregroundStyle(vm.isTorchOn ? AnyShapeStyle(.yellow) : AnyShapeStyle(.foreground))
+                        .padding()
+                    }
                 }
             }
         }
