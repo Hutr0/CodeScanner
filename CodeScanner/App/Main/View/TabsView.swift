@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+internal import CoreData
 
 struct TabsView: View {
     
@@ -28,4 +29,5 @@ struct TabsView: View {
 
 #Preview {
     TabsView()
+        .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }

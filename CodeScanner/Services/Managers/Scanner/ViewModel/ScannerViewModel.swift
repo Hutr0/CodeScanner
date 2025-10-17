@@ -17,12 +17,11 @@ final class ScannerViewModel: ObservableObject {
     @Published var isRunning = false
     @Published var isTorchOn = false
     @Published var permissionDenied = false
-    @Published var lastScanned: String?
+    @Published var lastScanned: ScannerResult?
     @Published var errorMessage: String?
 
     private let scanner = ScannerController()
     private var cancellables = Set<AnyCancellable>()
-    private var lastEmitAt = Date.distantPast
 
     var session: AVCaptureSession { scanner.session }
     
@@ -32,13 +31,10 @@ final class ScannerViewModel: ObservableObject {
     init() {
         scanner.scannedCodePublisher
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] code in
+            .sink { [weak self] result in
                 guard let self else { return }
                 
-                if Date().timeIntervalSince(lastEmitAt) > 0.8 {
-                    lastEmitAt = Date()
-                    lastScanned = code
-                }
+                lastScanned = result
             }
             .store(in: &cancellables)
 
@@ -76,6 +72,7 @@ final class ScannerViewModel: ObservableObject {
             await MainActor.run {
                 isRunning = false
                 isTorchOn = false
+                lastScanned = nil
             }
         }
     }

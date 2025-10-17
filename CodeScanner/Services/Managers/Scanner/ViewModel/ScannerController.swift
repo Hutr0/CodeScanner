@@ -25,6 +25,7 @@ final class ScannerController: NSObject {
     
     private let supportedTypes: [AVMetadataObject.ObjectType] = [
         .qr,
+        .microQR,
         .ean8,
         .ean13,
         .pdf417,
@@ -40,8 +41,8 @@ final class ScannerController: NSObject {
     private let sessionQueue = DispatchQueue(label: "scanner.session.queue")
     private let metadataQueue = DispatchQueue(label: "scanner.metadata.queue")
     
-    private let scannedCodeSubject = PassthroughSubject<String, Never>()
-    var scannedCodePublisher: AnyPublisher<String, Never> { scannedCodeSubject.eraseToAnyPublisher() }
+    private let scannedCodeSubject = PassthroughSubject<ScannerResult, Never>()
+    var scannedCodePublisher: AnyPublisher<ScannerResult, Never> { scannedCodeSubject.eraseToAnyPublisher() }
     
     
     // MARK: Deinit
@@ -216,10 +217,12 @@ extension ScannerController: AVCaptureMetadataOutputObjectsDelegate {
         guard let obj = metadataObjects.first as? AVMetadataMachineReadableCodeObject, let value = obj.stringValue else { return }
         
         let now = Date()
-        guard now.timeIntervalSince(lastScanTime) > 1.0 else { return }
+        guard now.timeIntervalSince(lastScanTime) > 3.0 else { return }
         lastScanTime = now
         
-        scannedCodeSubject.send(value)
+        let isQR = obj.type == .qr || obj.type == .microQR
+        
+        scannedCodeSubject.send(ScannerResult(code: value, isQR: isQR))
         
         Task { @MainActor in
             let gen = UINotificationFeedbackGenerator()

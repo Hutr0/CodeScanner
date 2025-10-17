@@ -12,7 +12,10 @@ struct ScannerView: View {
     @StateObject private var vm = ScannerViewModel()
     @State private var isPulsing = false
     
-    var onCodeScanned: (String) -> Void
+    @Binding
+    var isPaused: Bool
+    
+    var onCodeScanned: (ScannerResult) -> Void
 
     var body: some View {
         Group {
@@ -50,15 +53,25 @@ struct ScannerView: View {
                 }
             }
         }
-        .onChange(of: vm.lastScanned) { _, code in
-            guard let code else { return }
-            onCodeScanned(code)
+        .onChange(of: vm.lastScanned) { _, result in
+            guard let result else { return }
+            onCodeScanned(result)
+            vm.lastScanned = nil
         }
         .task {
             vm.requestPermissionAndStart()
         }
         .onDisappear {
             vm.stop()
+        }
+        .onChange(of: isPaused) { oldValue, newValue in
+            guard oldValue != newValue else { return }
+            
+            if newValue {
+                vm.stop()
+            } else {
+                vm.requestPermissionAndStart()
+            }
         }
         .alert("Ошибка", isPresented: .constant(vm.errorMessage != nil)) {
             Button("Ок") { vm.errorMessage = nil }
@@ -90,5 +103,5 @@ struct PermissionDeniedPlaceholder: View {
 }
 
 #Preview {
-    ScannerView() { _ in }
+    ScannerView(isPaused: Binding<Bool>.init(get: { false }, set: { _ in })) { _ in }
 }

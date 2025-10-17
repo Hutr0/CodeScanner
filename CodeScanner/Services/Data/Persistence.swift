@@ -5,7 +5,7 @@
 //  Created by Леонид Лукашевич on 16.10.2025.
 //
 
-import CoreData
+internal import CoreData
 
 struct PersistenceController {
     static let shared = PersistenceController()
@@ -64,16 +64,9 @@ struct PersistenceController {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         
-        for _ in 0..<10 {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-        }
-        
-        do {
-            try viewContext.save()
-        } catch {
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        for i in 0..<10 {
+            let newItem = Product(context: viewContext)
+            newItem.code = "\(i)"
         }
         
         return result
