@@ -45,7 +45,6 @@ final class OFFNetworkManager: AnyObject {
 
 private extension OFFNetworkManager {
 
-    // Корневой ответ OFF
     struct OFFAPIResponse: Decodable {
         let status: Int
         let status_verbose: String?
@@ -53,7 +52,6 @@ private extension OFFNetworkManager {
         let product: OFFRawProduct?
     }
 
-    // Только нужные поля из огромного OFF-продукта
     struct OFFRawProduct: Decodable {
         let code: String?
         // имена (локали + дефолт)
@@ -125,13 +123,11 @@ private extension OFFNetworkManager {
         }
 
         func pickFrontImage() -> URL? {
-            // 1) попытка через selected_images.front.display[lang]
             if let dict = raw.selected_images?.front?.display {
                 for lang in prio {
                     if let s = dict[lang], let url = URL(string: s) { return url }
                 }
             }
-            // 2) фолбэк — прямое поле
             return raw.image_front_url
         }
 
@@ -170,14 +166,3 @@ private extension OFFNetworkManager {
         )
     }
 }
-
-
-//private
-//extension OFFNetworkManager {
-//
-//    func localizedFFOProduct(_ dict: [String:Any], keyBase: String, preferred: String = "ru") -> String? {
-//        if let v = dict["\(keyBase)_\(preferred)"] as? String, !v.isEmpty { return v }
-//        return dict[keyBase] as? String
-//    }
-//    
-//}

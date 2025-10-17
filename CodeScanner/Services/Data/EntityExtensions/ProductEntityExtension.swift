@@ -11,11 +11,6 @@ extension Product {
     
     @discardableResult
     static func upsert(from dto: OFFProductDTO, to obj: Product, in ctx: NSManagedObjectContext) throws -> Product {
-//        let req: NSFetchRequest<Product> = Product.fetchRequest()
-//        req.predicate = NSPredicate(format: "code == %@", dto.code)
-//        req.fetchLimit = 1
-//
-//        let obj = try ctx.fetch(req).first ?? Product(context: ctx)
 
         // Обязательные/ключевые
         obj.code = dto.code

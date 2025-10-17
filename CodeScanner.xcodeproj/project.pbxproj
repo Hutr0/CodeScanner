@@ -34,7 +34,6 @@
 		E087F2B92EA18891002F5C8B /* NovaPill.swift in Sources */ = {isa = PBXBuildFile; fileRef = E087F2B82EA18891002F5C8B /* NovaPill.swift */; };
 		E098D0B12EA0D04E00F2830C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E098D0A92EA0D04E00F2830C /* Assets.xcassets */; };
 		E098D0B32EA0D04E00F2830C /* CodeScannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098D0AC2EA0D04E00F2830C /* CodeScannerApp.swift */; };
-		E098D0B42EA0D04E00F2830C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098D0AD2EA0D04E00F2830C /* ContentView.swift */; };
 		E098D0B52EA0D04E00F2830C /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098D0AE2EA0D04E00F2830C /* Persistence.swift */; };
 		E098D0C02EA0D5B900F2830C /* TabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098D0BF2EA0D5B900F2830C /* TabsView.swift */; };
 		E098D0CC2EA0D83000F2830C /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E098D0CB2EA0D83000F2830C /* ListView.swift */; };
@@ -86,7 +85,6 @@
 		E098D0952EA0CE1C00F2830C /* CodeScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CodeScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E098D0A92EA0D04E00F2830C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E098D0AC2EA0D04E00F2830C /* CodeScannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeScannerApp.swift; sourceTree = "<group>"; };
-		E098D0AD2EA0D04E00F2830C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E098D0AE2EA0D04E00F2830C /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		E098D0BF2EA0D5B900F2830C /* TabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabsView.swift; sourceTree = "<group>"; };
 		E098D0CB2EA0D83000F2830C /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
@@ -222,7 +220,6 @@
 			isa = PBXGroup;
 			children = (
 				E098D0AC2EA0D04E00F2830C /* CodeScannerApp.swift */,
-				E098D0AD2EA0D04E00F2830C /* ContentView.swift */,
 				E098D0BD2EA0D43600F2830C /* Main */,
 			);
 			path = App;
@@ -544,7 +541,6 @@
 				E098D0E52EA0E11E00F2830C /* ScannerView.swift in Sources */,
 				E06C27BE2EA1B780002C15F5 /* ArrayExtension.swift in Sources */,
 				E06C27CE2EA1C028002C15F5 /* ScanDetailContentNutrimentsSection.swift in Sources */,
-				E098D0B42EA0D04E00F2830C /* ContentView.swift in Sources */,
 				E06C27B82EA1B59B002C15F5 /* ScanDetailViewModel.swift in Sources */,
 				E098D0CE2EA0D84D00F2830C /* ListViewModel.swift in Sources */,
 				E06C27C42EA1BD5D002C15F5 /* ScanDetailKPICards.swift in Sources */,
